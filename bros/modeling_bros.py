@@ -1719,6 +1719,7 @@ class BrosForTokenClassification(BrosPreTrainedModel):
     def forward(
         self,
         input_ids=None,
+        bbox=None,
         attention_mask=None,
         token_type_ids=None,
         position_ids=None,
@@ -1740,6 +1741,7 @@ class BrosForTokenClassification(BrosPreTrainedModel):
 
         outputs = self.bros(
             input_ids,
+            bbox=bbox,
             attention_mask=attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
