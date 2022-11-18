@@ -1697,11 +1697,11 @@ class BrosForTokenClassification(BrosPreTrainedModel):
         self.num_labels = config.num_labels
 
         self.bros = BrosModel(config, add_pooling_layer=False)
-        classifier_dropout = (
-            config.classifier_dropout
-            if config.classifier_dropout is not None
-            else config.hidden_dropout_prob
-        )
+        classifier_dropout = config.hidden_dropout_prob
+        #     config.classifier_dropout
+        #     if config.classifier_dropout is not None
+        #     else config.hidden_dropout_prob
+        # )
         self.dropout = nn.Dropout(classifier_dropout)
         self.classifier = nn.Linear(config.hidden_size, config.num_labels)
 
